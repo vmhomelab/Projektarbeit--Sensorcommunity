@@ -1,5 +1,5 @@
 # Overview
-### Aufgabe: Daten eines Sensors von der Website www.sensorcommunity/de mit einem Python Skript downloaden, aufbereiten und grafisch darstellen.
+### Aufgabe: Daten eines Sensors von der Website www.sensorcommunity.de mit einem Python Skript downloaden, aufbereiten und grafisch darstellen.
 
 Dieses Repository ist Teil der Projektarbeit, die wir im Fach Anwendungsentwicklung erhalten haben. Wir sollten uns einen Sensor auf der Website aussuchen, Dann sollten wir mithilfe eine Python Skripts die Daten des Sensors vom FTP-Server runterladen in einer Datenbank (in meinem Fall SQL speichern) und aufbereiten. Heißt Zeilen mit fehlenden Daten oder falschen Daten aussortieren und die übrig gebliebenen Daten aufbereiten (Durschnitte errechnen etc.).
 
