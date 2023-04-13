@@ -21,6 +21,8 @@ Für mehr Information zu django schaut hier vorbei: https://www.djangoproject.co
 <p>
   
 ![Screenshot von der Website](https://github.com/vmhomelab/Projektarbeit--Sensorcommunity/blob/master/screenshots/SC_Home.PNG)
-
+![Screenshot von der Website](https://github.com/vmhomelab/Projektarbeit--Sensorcommunity/blob/master/screenshots/SC_Temperatur.PNG)
+![Screenshot von der Website](https://github.com/vmhomelab/Projektarbeit--Sensorcommunity/blob/master/screenshots/SC_Luftfeuchtigkeit.PNG)
+![Screenshot von der Website](https://github.com/vmhomelab/Projektarbeit--Sensorcommunity/blob/master/screenshots/SC_Luftqualität.PNG)
   </p>
 </details>
