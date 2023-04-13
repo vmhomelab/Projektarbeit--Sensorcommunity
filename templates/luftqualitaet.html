@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include './partials/head.html' with arg="Home" %}
+    {% include './partials/header.html' with path="Luftqualitaet" %}
+    <body class="bg-dark text-white">
+        <div id="container" class="container">
+            <div>
+                Bitte einen Monat auswählen 
+                {% include './partials/datepicker.html' with onchange="monthChange()" %}
+            </div>
+            <div id="spinner" class="spinner-border text-primary d-none" role="status" style="margin:auto;display:block;width:10rem;height:10rem">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <canvas id="myChart"></canvas>
+        </div>
+    </body>
+    <script>
+        function monthChange() {
+            const datepicker = document.getElementById("datepicker");
+            const month = datepicker.value;
+
+            if(month == 0) return;
+
+            document.getElementById('spinner').classList.remove('d-none')
+            let container = document.getElementById('container')
+            
+            const canvas = document.getElementById('myChart');
+            container.removeChild(canvas);
+            let newCanvas = document.createElement("canvas");
+            newCanvas.id = "myChart"
+            container.append(newCanvas);
+            
+            const ctx = document.getElementById('myChart');
+
+            fetch('api/luftfeuchtigkeit?month=' + month + '&year=2022')
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById('spinner').classList.add('d-none')
+                new Chart(ctx, {
+                    data: {
+                        labels: data.dates,
+                        datasets: [
+                            {
+                                label: 'Luftfeuchtigkeit',
+                                type: 'line',
+                                backgroundColor: '#4778E9',
+                                borderColor: '#4778E9',
+                                data:  data.luftfeuchtigkeit,
+                                borderWidth: 1, 
+                                yAxisID: 'y',
+                            }
+                        ]
+                    },
+                    options : {
+                        scales: {
+                            y: {
+                                min: 0,
+                                max: 100,
+                            }
+                            }
+                    }
+                }
+                );
+            })
+        }
+    </script>
+</html>

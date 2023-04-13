@@ -78,11 +78,15 @@ def temperatur(request):
 def luftfeuchtigkeit(request):
     return render(request, 'luftfeuchtigkeit.html')
 
+def luftqualitaet(request):
+    return render(request, 'luftqualitaet.html')
+
 urlpatterns = [
     path('api/tempyear',getTempForAYear),
     path('api/temperatur',getTemperatur),
     path('api/luftfeuchtigkeit',getLuftfeuchtigkeit),
     path('temperatur', temperatur),
     path('luftfeuchtigkeit', luftfeuchtigkeit),
+    path('luftqualitaet', luftqualitaet),
     path('',index),
 ]
