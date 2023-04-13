@@ -6,7 +6,7 @@
         <div id="container" class="container">
             <div>
                 Bitte einen Monat auswählen 
-                <input id="datepicker" type="month" min="2022-01" max="2022-12" onchange="monthChange()"/>
+                {% include './partials/datepicker.html' with onchange="monthChange()" %}
             </div>
             <div id="spinner" class="spinner-border text-primary d-none" role="status" style="margin:auto;display:block;width:10rem;height:10rem">
                 <span class="visually-hidden">Loading...</span>
@@ -16,6 +16,11 @@
     </body>
     <script>
         function monthChange() {
+            const datepicker = document.getElementById("datepicker");
+            const month = datepicker.value;
+
+            if(month == 0) return;
+
             document.getElementById('spinner').classList.remove('d-none')
             let container = document.getElementById('container')
             
@@ -24,12 +29,10 @@
             let newCanvas = document.createElement("canvas");
             newCanvas.id = "myChart"
             container.append(newCanvas);
-
-            const date = document.getElementById('datepicker').value.split('-');
             
             const ctx = document.getElementById('myChart');
 
-            fetch('api/luftfeuchtigkeit?month=' + date[1] + '&year=' + date[0])
+            fetch('api/luftfeuchtigkeit?month=' + month + '&year=2022')
             .then((response) => response.json())
             .then((data) => {
                 document.getElementById('spinner').classList.add('d-none')
