@@ -1,3 +1,4 @@
+{% load static %}
 <header class="text-bg-dark">
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -30,7 +31,11 @@
             {% else %}
                 <li class="nav-item"><a href="/luftqualitaet" class="nav-link">Luftqualität</a></li>
             {% endif %}
-
+            <li>
+                <a href="https://github.com/vmhomelab/Projektarbeit--Sensorcommunity" target="_blank">
+                    <img src="{% static 'github.svg' %}" width="40" height="40"/>
+                </a>
+            </li>
           </ul>
         </header>
       </div>

@@ -8,60 +8,109 @@
             <div id="spinner" class="spinner-border text-primary" role="status" style="margin:auto;display:block;width:10rem;height:10rem">
                 <span class="visually-hidden">Loading...</span>
               </div>
-            <canvas id="myChart"></canvas>
+            <canvas id="chartTempLuft"></canvas>
+            <hr>
+            <canvas id="chartLuftQuali"></canvas>
         </div>
       <script>
-        const ctx = document.getElementById('myChart');
-
-       fetch('/api/tempyear')
+        const chartTempLuft = document.getElementById('chartTempLuft');
+        const chartLuftQuali = document.getElementById('chartLuftQuali');
+       fetch('/api/getindex')
        .then((response) => response.json())
        .then ((data) => {
             document.getElementById('spinner').classList.add('d-none')
-            new Chart(ctx, {
-            
-            data: {
-                labels: data.dates,
-                datasets: [
-                    {
-                        label: 'Temperatur',
-                        type: 'line',
-                        backgroundColor: '#ff0000',
-                        borderColor: '#ff0000',
-                        data:  data.temperature,
-                        borderWidth: 1, 
-                        yAxisID: 'y',
-                    },
-                    {
-                        label: 'Luftfeuchtigkeit',
-                        type: 'line',
-                        backgroundColor: '#0000ff',
-                        borderColor: '#0000ff',
-                        data:  data.humidity,
-                        borderWidth: 1,
-                        yAxisID: 'y1',
-                    },
-                ]
-            },
-            options: {
-                scales: {
-                    y: {
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                    },
-                    y1: {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-
-                        // grid line settings
-                        grid: {
-                        drawOnChartArea: false, // only want the grid lines for one axis to show up
+            new Chart(chartTempLuft, {
+                data: {
+                    labels: data.tempLuft.dates,
+                    datasets: [
+                        {
+                            label: 'Temperatur',
+                            type: 'line',
+                            backgroundColor: '#f6685e',
+                            borderColor: '#f6685e',
+                            data:  data.tempLuft.temperature,
+                            borderWidth: 1, 
+                            yAxisID: 'y',
                         },
-                    },
+                        {
+                            label: 'Luftfeuchtigkeit',
+                            type: 'line',
+                            backgroundColor: '#00b0ff',
+                            borderColor: '#00b0ff',
+                            data:  data.tempLuft.humidity,
+                            borderWidth: 1,
+                            yAxisID: 'y1',
+                        },
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+
+                            // grid line settings
+                            grid: {
+                            drawOnChartArea: false, // only want the grid lines for one axis to show up
+                            },
+                        },
+                    }
                 }
-            }
             });
+
+
+            new Chart(chartLuftQuali, {
+                data: {
+                    labels: data.luftQuali.dates,
+                    datasets: [
+                        {
+                            label: 'P1',
+                            type: 'line',
+                            backgroundColor: '#009688',
+                            borderColor: '#009688',
+                            data:  data.luftQuali.luftQualiP1,
+                            borderWidth: 1, 
+                            yAxisID: 'y',
+                        },
+                        {
+                            label: 'P2',
+                            type: 'line',
+                            backgroundColor: '#ffc400',
+                            borderColor: '#ffc400',
+                            data:  data.luftQuali.luftQualiP2,
+                            borderWidth: 1,
+                            yAxisID: 'y1',
+                        },
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+
+                            // grid line settings
+                            grid: {
+                            drawOnChartArea: false, // only want the grid lines for one axis to show up
+                            },
+                        },
+                    }
+                }
+            });
+
+
        })
       </script>
       </div>

@@ -32,7 +32,7 @@
             
             const ctx = document.getElementById('myChart');
 
-            fetch('api/luftfeuchtigkeit?month=' + month + '&year=2022')
+            fetch('api/luftqualitaet?month=' + month + '&year=2022')
             .then((response) => response.json())
             .then((data) => {
                 document.getElementById('spinner').classList.add('d-none')
@@ -41,14 +41,23 @@
                         labels: data.dates,
                         datasets: [
                             {
-                                label: 'Luftfeuchtigkeit',
-                                type: 'line',
-                                backgroundColor: '#4778E9',
-                                borderColor: '#4778E9',
-                                data:  data.luftfeuchtigkeit,
-                                borderWidth: 1, 
-                                yAxisID: 'y',
-                            }
+                            label: 'P1',
+                            type: 'line',
+                            backgroundColor: '#009688',
+                            borderColor: '#009688',
+                            data:  data.luftqualip1,
+                            borderWidth: 1, 
+                            yAxisID: 'y',
+                            },
+                            {
+                            label: 'P2',
+                            type: 'line',
+                            backgroundColor: '#ffc400',
+                            borderColor: '#ffc400',
+                            data:  data.luftqualip2,
+                            borderWidth: 1,
+                            yAxisID: 'y1',
+                            },
                         ]
                     },
                     options : {
