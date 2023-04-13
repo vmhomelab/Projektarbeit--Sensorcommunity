@@ -1,5 +1,5 @@
 # Overview
-### Aufgabe: Daten eines Sensors von der Website www.sensorcommunity/de mit einem Python Skript downloaden, aufbereiten und grafisch darstellen.
+### Aufgabe: Daten eines Sensors von der Website www.sensorcommunity.de mit einem Python Skript downloaden, aufbereiten und grafisch darstellen.
 
 Dieses Repository ist Teil der Projektarbeit, die wir im Fach Anwendungsentwicklung erhalten haben. Wir sollten uns einen Sensor auf der Website aussuchen, Dann sollten wir mithilfe eine Python Skripts die Daten des Sensors vom FTP-Server runterladen in einer Datenbank (in meinem Fall SQL speichern) und aufbereiten. Heißt Zeilen mit fehlenden Daten oder falschen Daten aussortieren und die übrig gebliebenen Daten aufbereiten (Durschnitte errechnen etc.).
 
@@ -14,13 +14,13 @@ Für mehr Information zu django schaut hier vorbei: https://www.djangoproject.co
 - [x] Stellt Temperatur und Feuchtigkeit in einem eigenen Graphen für das gesamte Jahr 2022 dar
 - [x] Es kann für einzelne Monate die Temperatur und Luftfeuchtigkeit angezeigt werden
 - [X] Stellt Luftqualität in einem Graphen für das Jahr 2022 dar
-- [X] Es kann für einzelne Monate die Luftfeuchtigkeit angezeigt werden
+- [X] Es kann für einzelne Monate die Luftqualität angezeigt werden
 
 # Screenshots
 <details><summary>Hier klicken</summary>
 <p>
   
-![Screenshot von der Website](https://github.com/vmhomelab/Projektarbeit-Sensor-Community/blob/fab9385af8651706aa77419d0a7ff6def8ecc870/SC_Home.PNG)
+![Screenshot von der Website](https://github.com/vmhomelab/Projektarbeit--Sensorcommunity/blob/master/screenshots/SC_Home.PNG)
 
   </p>
 </details>
