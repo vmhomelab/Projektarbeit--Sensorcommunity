@@ -20,7 +20,7 @@ Für mehr Information zu django schaut hier vorbei: https://www.djangoproject.co
 <details><summary>Hier klicken</summary>
 <p>
   
-![Screenshot von der Website](https://github.com/vmhomelab/Projektarbeit-Sensor-Community/blob/fab9385af8651706aa77419d0a7ff6def8ecc870/SC_Home.PNG)
+![Screenshot von der Website](https://github.com/vmhomelab/Projektarbeit--Sensorcommunity/blob/master/screenshots/SC_Home.PNG)
 
   </p>
 </details>
