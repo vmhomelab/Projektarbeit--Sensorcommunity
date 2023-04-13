@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os 
+import json
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -69,6 +70,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sensorino.wsgi.application'
 
+# Read Config file
+f = open(os.path.join(os.path.dirname(__file__), '../' , 'config.json'))
+config = json.load(f)
+f.close()
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -79,16 +84,16 @@ DATABASES = {
         'ENGINE': 'mssql',
 
         # String. Database name. Required.
-        'NAME': 'sensorcommunity',
+        'NAME': config['db'],
 
         # String. Database user name in "user" format. If not given then MS Integrated Security will be used.
-        'USER': 'sa',
+        'USER':  config['user'],
 
         # String. Database user password.
-        'PASSWORD': '1234',
+        'PASSWORD':  config['pass'],
 
          # String. SQL Server instance in "server\instance" format.
-        'HOST': 'WIN-LGSVEC7MN6V\SQLSERVER',
+        'HOST': config['host'],
 
         # String. Server instance port. An empty string means the default port.
         'PORT': '',
