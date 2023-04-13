@@ -13,11 +13,8 @@ Für mehr Information zu django schaut hier vorbei: https://www.djangoproject.co
 
 - [x] Stellt Temperatur und Feuchtigkeit in einem eigenen Graphen für das gesamte Jahr 2022 dar
 - [x] Es kann für einzelne Monate die Temperatur und Luftfeuchtigkeit angezeigt werden
-
-Upcoming
-
-- [ ] Stellt Luftqualität in einem Graphen für das Jahr 2022 dar
-- [ ] Es kann für einzelne Monate die Luftfeuchtigkeit angezeigt werden
+- [X] Stellt Luftqualität in einem Graphen für das Jahr 2022 dar
+- [X] Es kann für einzelne Monate die Luftfeuchtigkeit angezeigt werden
 
 # Screenshots
 <details><summary>Hier klicken</summary>
