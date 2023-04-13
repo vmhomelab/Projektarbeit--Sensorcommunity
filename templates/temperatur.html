@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include './partials/head.html' with arg="Home" %}
+    {% include './partials/header.html' with path="Temperatur" %}
+    <body class="bg-dark text-white">
+        <div id="container" class="container">
+            <div>
+                Bitte einen Monat auswählen 
+                <input id="datepicker" type="month" min="2022-01" max="2022-12" onchange="monthChange()"/>
+            </div>
+            <div id="spinner" class="spinner-border text-primary d-none" role="status" style="margin:auto;display:block;width:10rem;height:10rem">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <canvas id="myChart"></canvas>
+        </div>
+    </body>
+    <script>
+        function monthChange() {
+            document.getElementById('spinner').classList.remove('d-none')
+            let container = document.getElementById('container')
+            
+            const canvas = document.getElementById('myChart');
+            container.removeChild(canvas);
+            let newCanvas = document.createElement("canvas");
+            newCanvas.id = "myChart"
+            container.append(newCanvas);
+
+            const date = document.getElementById('datepicker').value.split('-');
+            
+            const ctx = document.getElementById('myChart');
+
+            fetch('api/temperatur?month=' + date[1] + '&year=' + date[0])
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById('spinner').classList.add('d-none')
+                new Chart(ctx, {
+                    data: {
+                        labels: data.dates,
+                        datasets: [
+                            {
+                                label: 'Temperatur',
+                                type: 'line',
+                                backgroundColor: '#ff0000',
+                                borderColor: '#ff0000',
+                                data:  data.temperature,
+                                borderWidth: 1, 
+                                yAxisID: 'y',
+                            }
+                        ]
+                    },
+                    options : {
+                        scales: {
+                            y: {
+                                min: -20,
+                                max: 50,
+                            }
+                            }
+                    }
+                }
+                );
+            })
+        }
+    </script>
+</html>

@@ -1,0 +1,31 @@
+<header class="text-bg-dark">
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none ">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-4 text-white">Sensorcommunity</span>
+          </a>
+          <ul class="nav nav-pills">
+
+            {% if path == 'Home' %}
+                <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+            {% else %}
+                <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
+            {% endif %}
+
+            {% if path == 'Temperatur' %}
+                <li class="nav-item"><a href="/temperatur" class="nav-link active">Temperatur</a></li>
+            {% else %}
+                <li class="nav-item"><a href="/temperatur" class="nav-link">Temperatur</a></li>
+            {% endif %}
+
+            {% if path == 'Luftfeuchtigkeit' %}
+                <li class="nav-item"><a href="/luftfeuchtigkeit" class="nav-link active">Luftfeuchtigkeit</a></li>
+            {% else %}
+                <li class="nav-item"><a href="/luftfeuchtigkeit" class="nav-link">Luftfeuchtigkeit</a></li>
+            {% endif %}
+
+          </ul>
+        </header>
+      </div>
+</header>
